@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="message">Your random message will appear here.</p>
+    </div>
+
+    <script>
+        // Define an array of random messages
+        const messages = [
+            "Hello, world! This is a random page view.",
+            "You found a secret message! Congrats!",
+            "Randomness is all around us.",
+            "Make each day your masterpiece.",
+            "The only limit is your imagination.",
+            "Here's a little something different!",
+            "Embrace the unexpected."
+        ];
+
+        // Define an array of random background colors
+        const colors = [
+            "#3498db", // blue
+            "#2ecc71", // green
+            "#e74c3c", // red
+            "#f1c40f", // yellow
+            "#9b59b6", // purple
+            "#1abc9c"  // turquoise
+        ];
+
+        // Function to get a random item from an array
+        function getRandomItem(arr) {
+            const randomIndex = Math.floor(Math.random() * arr.length);
+            return arr[randomIndex];
+        }
+
+        // Function to update content and background on page load
+        function setRandomContent() {
+            const randomMessage = getRandomItem(messages);
+            const randomColor = getRandomItem(colors);
+
+            document.getElementById("message").textContent = randomMessage;
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        // Run the function when the page loads
+        window.onload = setRandomContent;
+    </script>
+</body>
+</html>
